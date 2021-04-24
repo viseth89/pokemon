@@ -7,3 +7,9 @@
 5. Capture the response -> https://stackoverflow.com/questions/46579533/what-does-thenres-res-json-in-react-native-fetch-mean
     1. The json() method of the Body mixin takes a Response stream and reads it to completion. It returns a promise which resolves with a JavaScript object that is the result of parsing the body text as JSON. ("https://developer.mozilla.org/en-US/docs/Web/API/Body/json")
 6. Create new Array : concise body -> no return statement necessary
+7. What information do we want returned?
+8. Name
+9. Basic Stats - 6 of them -> want to use map feature here
+10. Picture
+11. Abilities?
+

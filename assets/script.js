@@ -10,6 +10,11 @@ let query  = "/pokemon/charmander"
 //3. Check to make sure js is loaded with a simple console.log
 console.log("JS has been loaded")
 
+
+
+
+
+
 // Write fetch request.
 fetch(baseURL + query)                      //4. Fetch Concatenated URL
     .then(res => res.json())                //5. Capture the response -> https://stackoverflow.com/questions/46579533/what-does-thenres-res-json-in-react-native-fetch-mean
@@ -33,15 +38,20 @@ fetch(baseURL + query)                      //4. Fetch Concatenated URL
         // console.log(typeof json)         = View typeof for json => Object
         
 
-        let filmList = document.getElementById("film-list")
-        filmList.append(json.name)
 
         let card_title = document.getElementsByClassName("card-title")
-        card_title[1].replaceWith(json.name)
+        card_title[0].replaceWith(json.name)
+
+        let stat_list = document.getElementById("stat_list2")
+        stat_list.append(json.name)
+
+        let list_group_item = document.getElementsByClassName("list-group-item")
+        list_group_item[1].append(json.name)
                                             
     })                     
 
-    
+    let filmList = document.getElementById("film-list")
+    filmList.append(json.name)
 
 
     // Display Results
