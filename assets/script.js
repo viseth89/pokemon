@@ -12,6 +12,7 @@ console.log("JS has been loaded")
 
 
 
+let filmList = document.getElementById("film-list")
 
 
 
@@ -43,15 +44,30 @@ fetch(baseURL + query)                      //4. Fetch Concatenated URL
         card_title[0].replaceWith(json.name)
 
         let stat_list = document.getElementById("stat_list2")
-        stat_list.append(json.name)
+        // stat_list.append(json.name)
 
         let list_group_item = document.getElementsByClassName("list-group-item")
         list_group_item[1].append(json.name)
-                                            
+        filmList.append(json.name)
+
+        displayResults(json)                                    
     })                     
 
-    let filmList = document.getElementById("film-list")
-    filmList.append(json.name)
+
+
+function displayResults(pokemons) {
+    let pokemonList = document.getElementById("pokemon-list")
+ 
+    // pokemons.map(pokemon => {
+    //     let pokemonLi = document.createElement('li')
+    //     pokemonLi.innerText= `${pokemon.name }`
+    //     pokemonList.appendChild(pokemonLi)
+    // })
+    let pokemonLi = document.createElement('li')
+    pokemonLi.innerText= `${pokemons.name }`
+    console.log(pokemonList)
+
+}
 
 
     // Display Results
