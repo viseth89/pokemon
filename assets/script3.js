@@ -1,12 +1,31 @@
-const baseURL = "https://ghibliapi.herokuapp.com"
+const baseURL = "https://pokeapi.co/api/v2/"
+const query1 = "pokemon/charmander"
+let filmList1 = document.getElementById("film-list-1")
 
 
-let query  = "https://pokeapi.co/api/v2/pokemon/pikachu"
+fetch(baseURL + query1)
+    .then(res => res.json())
+    .then(json => {
+        let myArr = json.stats.map(pokemon => {
+            return {
+                stat: pokemon.stat.name,
+                base_stat: pokemon.base_stat
+            }
+        })
+        console.log(myArr)
+
+        displayResults1(myArr)
+    })
+
+
+
+
+let filmList = document.getElementById("film-list")
+let query = "https://pokeapi.co/api/v2/pokemon/pikachu"
 
 fetch(query) // Reaches out to the internet to get data
     .then(res => res.json()) // Returns on the json data
     .then(json => {
-        console.log(json)
         console.log(json)
         console.log('viseth')
         console.log(json.stats)
@@ -16,16 +35,10 @@ fetch(query) // Reaches out to the internet to get data
             return {
                 stat: pokemon.stat.name,
                 base_stat: pokemon.base_stat
-     }
-            })
-        // Sort them by rating
-        // let sortedArr = myArr.sort((cur, prev) => prev.rt_score - cur.rt_score)
-        // Passes off the Sorted Array to be displayed
-        // displayResults(sortedArr)
-        // displayResults(sortedArr)
-        console.log(myArr)
-        console.log(myArr[2])
+            }
+        })
 
+        console.log(myArr)
 
         let pokemon_name_2 = document.getElementById("pokemon-name-2")
         let filmList = document.getElementById("pokemon-name-2")
@@ -37,21 +50,24 @@ fetch(query) // Reaches out to the internet to get data
     })
 
 
-    function displayResults(films) {
-        // Grabs the ul element from the index.html
-        let filmList = document.getElementById("film-list")
-        
-        // let pokemon_name_2 = document.getElementById("pokemon-name-2")
-        // pokemon_name_2.appendChild(films.name)
+function displayResults(pokemons) {
 
-        films.map(film => {                                                             // Goes through the films that are passed in to the function
-            let filmLi = document.createElement('li')
-            filmLi.className = "list-group-item"
-            //console.log(filmLi)                                   // For each film I make a new li tag
-            filmLi.innerText = `${film.stat } ${film.base_stat}`                        // Assignment of the film title and rt_score to the inner text 
-            filmList.appendChild(filmLi)
-            //console.log(filmLi)                                                // Adds the newly made li tag with text to the ul tag
-                              
-        })
-        
-    }
+    pokemons.map(pokemon => { 
+        let pokemonLi = document.createElement('li')
+        pokemonLi.className = "list-group-item"                                 
+        pokemonLi.innerText = `${pokemon.stat } ${pokemon.base_stat}` 
+        filmList.appendChild(pokemonLi)
+   
+    })
+}
+
+function displayResults1(pokemons) {
+
+    pokemons.map(pokemon => { 
+        let pokemonLi = document.createElement('li')
+        pokemonLi.className = "list-group-item"                                 
+        pokemonLi.innerText = `${pokemon.stat } ${pokemon.base_stat}` 
+        filmList1.appendChild(pokemonLi)
+   
+    })
+}
