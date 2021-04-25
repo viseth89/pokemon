@@ -14,6 +14,12 @@ fetch(baseURL + query1)
         })
         console.log(myArr)
 
+
+        let filmList = document.getElementById("pokemon-name-1")
+        // work on capitalize
+
+        filmList.replaceWith(json.name)
+
         displayResults1(myArr)
     })
 
