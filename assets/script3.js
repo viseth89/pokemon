@@ -70,3 +70,14 @@ function displayResults1(pokemons) {
    
     })
 }
+
+
+/* 
+Unable to reuse display Results due to 
+
+        filmList1.appendChild(pokemonLi)
+
+        Trying to figure out why I can't have the list as a second parameter to make it dynamic and reusable;
+
+
+*/

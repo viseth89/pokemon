@@ -21,8 +21,12 @@ function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
     pokemonEl.classList.add('pokemon');
 
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+
     const pokeInnerHTML = `
         ${pokemon.id}
+        ${pokemon.name}
+        ${name}
     `;
     pokemonEl.innerHTML = pokeInnerHTML;
 
@@ -33,8 +37,50 @@ function createPokemonCard(pokemon) {
 
 fetchPokemons()
 /* 
+The goal with this script is to try and learn async await;
+trying to add the words to the previous script3.js did not work;
+
+Its not as simple as just adding the words (not suprising)
+
+Async await is also suppose to help make the response quicker, the goal will be to be able to explain it.
+
+
 no 'await' in line 7 result in object promise pending
 
 
+
+
+
+
+
+
+References :
+1. https://www.jamesqquick.com/blog/build-a-pokedex-with-vanilla-javascript -> Struggled at promise section
+
+-> "Typically, you shouldn't make asynchronous calls inside of a For Loop."
+
+"promise chaining" - ?
+
+-> Acquired Useful hover 
+
+.card:hover {
+  animation: bounce 0.5s linear;
+}
+
+
+
+2. https://www.youtube.com/watch?v=gyC19H4ip1k -> Did not understand
+
+3. https://www.youtube.com/watch?v=XL68br6JyYs -> Very helpful walkthrough 
+
+4. When do we use async, should we always use async if we can?
+5. if we have to make the function async how do we know where to use await?
+
+6. Claim is to be concise -> Not sure I feel its much cleaner...
+
+7. Whiteboard -> memory
+
+8. pokemon.name.slice(1) - ulbasaur
+a. pokemon.name.slace(4) - asaur
 
 */
