@@ -2,7 +2,6 @@ const baseURL = "https://pokeapi.co/api/v2/"
 const query1 = "pokemon/charmander"
 let filmList1 = document.getElementById("film-list-1")
 
-
 fetch(baseURL + query1)
     .then(res => res.json())
     .then(json => {
@@ -14,17 +13,12 @@ fetch(baseURL + query1)
         })
         console.log(myArr)
 
-
         let filmList = document.getElementById("pokemon-name-1")
         // work on capitalize
 
         filmList.replaceWith(json.name)
-
         displayResults1(myArr)
     })
-
-
-
 
 let filmList = document.getElementById("film-list")
 let query = "https://pokeapi.co/api/v2/pokemon/pikachu"
@@ -48,15 +42,14 @@ fetch(query) // Reaches out to the internet to get data
 
         let pokemon_name_2 = document.getElementById("pokemon-name-2")
         let filmList = document.getElementById("pokemon-name-2")
-        // work on capitalize
 
         filmList.replaceWith(json.name)
 
-        displayResults(myArr)
+        displayResults(myArr, filmList1)
     })
 
 
-function displayResults(pokemons) {
+function displayResults(pokemons, list) {
 
     pokemons.map(pokemon => { 
         let pokemonLi = document.createElement('li')
