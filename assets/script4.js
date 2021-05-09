@@ -24,8 +24,13 @@ function createPokemonCard(pokemon) {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
 
     const pokeInnerHTML = `
+        <div class ="img-container">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png">
+
+        </div>
         ${pokemon.id}
-        ${pokemon.name}
+
+
         ${name}
     `;
     pokemonEl.innerHTML = pokeInnerHTML;
