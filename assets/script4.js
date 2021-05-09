@@ -22,28 +22,16 @@ function createPokemonCard(pokemon) {
     pokemonEl.classList.add('pokemon');
 
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+    const type = pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1)
+
 
     const pokeInnerHTML = `
         <div class ="img-container">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png">
-
-            <img src =         ${pokemon.sprites.other["official-artwork"].front_default}
-            >
-
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg">
-
-            <img src = ${pokemon.sprites.other.dream_world.front_default} >
-
+            <img src = ${pokemon.sprites.other["official-artwork"].front_default}>
+            <h3 class="name">         00${pokemon.id} ${name} </h3>
+            <h3 class="name"> Type :  ${type}</h3>
         </div>
-        ${pokemon.id}
-        ${pokemon.name}
-
-        ${pokemon.sprites.other.dream_world.front_default}
-        ${pokemon.sprites.other["official-artwork"].front_default}
-
         
-
-        ${name}
     `;
     pokemonEl.innerHTML = pokeInnerHTML;
 
