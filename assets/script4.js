@@ -2,12 +2,10 @@ const poke_container = document.getElementById('poke_container');
 const pokemons_number = 150;
 
 const fetchPokemons = async () => {
-    for(let i=1; i<=pokemons_number; i++) {
+    for (let i = 1; i <= pokemons_number; i++) {
         await getPokemon(i)
     }
 }
-
-
 
 const getPokemon = async id => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -19,24 +17,32 @@ const getPokemon = async id => {
 
 function createPokemonCard(pokemon) {
     const pokemonEl = document.createElement('div');
-    pokemonEl.classList.add('pokemon');
-
+    pokemonEl.classList.add('col-md-4');
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
     const type = pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.slice(1)
 
-
     const pokeInnerHTML = `
-        <div class ="img-container">
-            <img src = ${pokemon.sprites.other["official-artwork"].front_default}>
-            <h3 class="name">         00${pokemon.id} ${name} </h3>
-            <h3 class="name"> Type :  ${type}</h3>
+        <div class ="card text-center ">
+            <div class ="card-img-top img-container">
+                <img src = ${pokemon.sprites.other["official-artwork"].front_default}>
+
+                <div class="card-body">
+                <div class="card-header">
+                <h3 class="card-title" id="pokemon-name-2">00${pokemon.id} ${name}</h3>
+
+                </div>
+                <ul class="list-group list-group-flush" id="film-list">
+
+                </ul>
+                <div class="card-footer">
+                <h3 class="name"> Type :  ${type}</h3>
+                </div>                
+            </div>
         </div>
         
     `;
     pokemonEl.innerHTML = pokeInnerHTML;
-
     poke_container.appendChild(pokemonEl);
-
 
 }
 
@@ -53,12 +59,6 @@ Async await is also suppose to help make the response quicker, the goal will be 
 no 'await' in line 7 result in object promise pending
 
 
-
-
-
-
-
-
 References :
 1. https://www.jamesqquick.com/blog/build-a-pokedex-with-vanilla-javascript -> Struggled at promise section
 
@@ -71,7 +71,6 @@ References :
 .card:hover {
   animation: bounce 0.5s linear;
 }
-
 
 
 2. https://www.youtube.com/watch?v=gyC19H4ip1k -> Did not understand
@@ -93,6 +92,8 @@ pokemon.name.slace(4) - asaur
 ${pokemon.sprites.other.dream_world.front_default}
 ${pokemon.sprites.other["official-artwork"].front_default}
 
+9. match types part around 12 minute mark unclear
 
+10. How do I map the stats into an array
 
 */
