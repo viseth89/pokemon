@@ -27,9 +27,21 @@ function createPokemonCard(pokemon) {
         <div class ="img-container">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png">
 
+            <img src =         ${pokemon.sprites.other["official-artwork"].front_default}
+            >
+
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg">
+
+            <img src = ${pokemon.sprites.other.dream_world.front_default} >
+
         </div>
         ${pokemon.id}
+        ${pokemon.name}
 
+        ${pokemon.sprites.other.dream_world.front_default}
+        ${pokemon.sprites.other["official-artwork"].front_default}
+
+        
 
         ${name}
     `;
@@ -85,7 +97,14 @@ References :
 
 7. Whiteboard -> memory
 
-8. pokemon.name.slice(1) - ulbasaur
-a. pokemon.name.slace(4) - asaur
+8. 
+
+pokemon.name.slice(1) - ulbasaur
+pokemon.name.slace(4) - asaur
+
+${pokemon.sprites.other.dream_world.front_default}
+${pokemon.sprites.other["official-artwork"].front_default}
+
+
 
 */
